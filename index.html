@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="container"> 
+        <header class="nav">
+            <div class="title">Recipe <span>Finder</span></div>
+            <button class="btn ghost small" id="btn-favs" aria-pressed="false">★ Favorites</button>
+        </header>
+
+        <section class="search" aria-label="Recipe search">
+                <div class="fields">
+                    <label class="input" aria-label="Search by name">
+                        <input id="q" type="search" placeholder="Search recipes (e.g., pasta, curry)"/>
+                    </label>
+                    <label class="input" aria-label="Filter by ingredient">
+                        <input id="ingredient" type="text" placeholder="Ingredient (optional)" />
+                    </label>
+                </div>
+                <div class="filters" aria-label="Quick filters">
+                    <button class="chip" data-value="Beef">Beef</button>
+                    <button class="chip" data-value="Chicken">Chicken</button>
+                    <button class="chip" data-value="Dessert">Dessert</button>
+                    <button class="chip" data-value="Seafood">Seafood</button>
+                    <button class="chip" data-value="Vegetarian">Vegetarian</button>
+                </div>
+                <h3>Press the search button for a random recipe</h3>
+                <br>
+                <button id="searchBtn" class="searchBtn" aria-label="Search">Search</button>
+        </section>
+
+        <main id="results" class="grid" aria-live="polite" aria-busy="false"></main>
+
+        <div id="empty" class="empty" hidden>
+            <p>Start by typing a recipe or choose a quick filter. Results will appear here</p>
+        </div>
+
+        <dialog id="recipeDialog">
+            <form method="dialog">
+                <div class="modal">
+                    <img id="dialogImg" alt="Recipe Image" />
+                    <div>
+                        <h2 id="dialogTitle"></h2>
+                        <div id="dialogTags"></div>
+                        <h3>Ingredients</h3>
+                        <ul id="dialogIngredients" class="Ingredients"></ul>
+                        <h3>Instructions</h3>
+                        <p id="dialogInstructions"></p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-ghost" value="cancel">Close</button>
+                    <button id="favToggle" class="btn" type="button">Add to Favorites</button>
+                </div>
+            </form>
+        </dialog>
+
+        <footer> 
+            <small>Data from <a href="https://www.themealdb.com" target="_blank">TheMealDB</a>.</small>
+        </footer>
+    </div>
+    
+</body>
+</html>
